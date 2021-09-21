@@ -1,0 +1,332 @@
+school_district_type,school_district_id,school_district_name
+01,0001,Aitkin Public School District
+01,0002,Hill City Public School District
+01,0004,McGregor Public School District
+01,0011,Anoka-Hennepin Public School District
+01,0012,Centennial Public School District
+01,0013,Columbia Heights Public School Dist
+01,0014,Fridley Public School District
+01,0015,St. Francis Area Schools
+01,0016,Spring Lake Park Public Schools
+01,0022,Detroit Lakes Public School Dist.
+01,0023,Frazee-Vergas Public School Dist.
+01,0025,Pine Point Public School District
+01,0031,Bemidji Public School District
+01,0032,Blackduck Public School District
+01,0036,Kelliher Public School District
+01,0038,Red Lake Public School District
+01,0047,Sauk Rapids-Rice Public Schools
+01,0051,Foley Public School District
+01,0075,St. Clair Public School District
+01,0077,Mankato Public School District
+01,0081,Comfrey Public School District
+01,0084,Sleepy Eye Public School District
+01,0085,Springfield Public School District
+01,0088,New Ulm Public School District
+01,0091,Barnum Public School District
+01,0093,Carlton Public School District
+01,0094,Cloquet Public School District
+01,0095,Cromwell-Wright Public Schools
+01,0097,Moose Lake Public School District
+01,0099,Esko Public School District
+01,0100,Wrenshall Public School District
+01,0108,Central Public School District
+01,0110,Waconia Public School District
+01,0111,Watertown-Mayer Public School Dist.
+01,0112,Eastern Carver County Public School
+01,0113,Walker-Hackensack-Akeley Schl. Dist
+01,0115,Cass Lake-Bena Public Schools
+01,0116,Pillager Public School District
+01,0118,Northland Community Schools
+01,0129,Montevideo Public School District
+01,0138,North Branch Public Schools
+01,0139,Rush City Public School District
+01,0146,Barnesville Public School District
+01,0150,Hawley Public School District
+01,0152,Moorhead Public School District
+01,0162,Bagley Public School District
+01,0166,Cook County Public Schools
+01,0173,Mountain Lake Public Schools
+01,0177,Windom Public School District
+01,0181,Brainerd Public School District
+01,0182,Crosby-Ironton Public School District
+01,0186,Pequot Lakes Public Schools
+01,0191,Burnsville Public School District
+01,0192,Farmington Public School District
+01,0194,Lakeville Public School District
+01,0195,Randolph Public School District
+01,0196,Rosemount-Apple Valley-Eagan
+01,0197,West St. Paul-Mendota Hts.-Eagan
+01,0199,Inver Grove Heights Schools
+01,0200,Hastings Public School District
+01,0203,Hayfield Public School District
+01,0204,Kasson-Mantorville School District
+01,0206,Alexandria Public School District
+01,0213,Osakis Public School District
+01,0227,Chatfield Public Schools
+01,0229,Lanesboro Public School District
+01,0238,Mabel-Canton Public School Dist.
+01,0239,Rushford-Peterson Public Schools
+01,0241,Albert Lea Public School District
+01,0242,Alden-Conger Public School District
+01,0252,Cannon Falls Public School District
+01,0253,Goodhue Public School District
+01,0255,Pine Island Public School Dist.
+01,0256,Red Wing Public School District
+01,0261,Ashby Public School District
+01,0264,Herman-Norcross School District
+01,0270,Hopkins Public School District
+01,0271,Bloomington Public School District
+01,0272,Eden Prairie Public School District
+01,0273,Edina Public School District
+01,0276,Minnetonka Public School District
+01,0277,Westonka Public School District
+01,0278,Orono Public School District
+01,0279,Osseo Public School District
+01,0280,Richfield Public School District
+01,0281,Robbinsdale Public School District
+01,0282,St. Anthony-New Brighton Schools
+01,0283,St. Louis Park Public School Dist.
+01,0284,Wayzata Public School District
+01,0286,Brooklyn Center School District
+01,0294,Houston Public School District
+01,0297,Spring Grove School District
+01,0299,Caledonia Public School District
+01,0300,LA CRESCENT-HOKAH
+01,0306,Laporte Public School District
+01,0308,Nevis Public School District
+01,0309,Park Rapids Public School District
+01,0314,Braham Public School District
+01,0316,Greenway Public School District
+01,0317,Deer River Public School District
+01,0318,Grand Rapids Public School District
+01,0319,Nashwauk-Keewatin School District
+01,0330,Heron Lake-Okabena School District
+01,0332,Mora Public School District
+01,0333,Ogilvie Public School District
+01,0345,New London-Spicer School District
+01,0347,Willmar Public School District
+01,0356,Lancaster Public School District
+01,0361,International Falls School District
+01,0362,Littlefork-Big Falls School Dist.
+01,0363,South Koochiching School District
+01,0378,Dawson-Boyd Public School District
+01,0381,Lake Superior Public School Dist.
+01,0390,Lake of The Woods School District
+01,0391,Cleveland Public School District
+01,0402,Hendricks Public School District
+01,0403,Ivanhoe Public School District
+01,0404,Lake Benton Public School District
+01,0413,Marshall Public School District
+01,0414,Minneota Public School District
+01,0415,Lynd Public School District
+01,0423,Hutchinson Public School District
+01,0424,Lester Prairie Public School Dist.
+01,0432,Mahnomen Public School District
+01,0435,Waubun-Ogema-White Earth Public Sch
+01,0441,Marshall County Central Schools
+01,0447,Grygla Public School District
+01,0458,Truman Public School District
+01,0463,Eden Valley-Watkins School District
+01,0465,Litchfield Public School District
+01,0466,Dassel-Cokato Public School Dist.
+01,0473,Isle Public School District
+01,0477,Princeton Public School District
+01,0480,Onamia Public School District
+01,0482,Little Falls Public School District
+01,0484,Pierz Public School District
+01,0485,Royalton Public School District
+01,0486,Swanville Public School District
+01,0487,Upsala Public School District
+01,0492,Austin Public School District
+01,0495,Grand Meadow Public School District
+01,0497,Lyle Public School District
+01,0499,LeRoy-Ostrander Public Schools
+01,0500,Southland Public School District
+01,0505,Fulda Public School District
+01,0507,Nicollet Public School District
+01,0508,St. Peter Public School District
+01,0511,Adrian Public School District
+01,0514,Ellsworth Public School District
+01,0518,Worthington Public School District
+01,0531,Byron Public School District
+01,0533,Dover-Eyota Public School District
+01,0534,Stewartville Public School District
+01,0535,Rochester Public School District
+01,0542,Battle Lake Public School District
+01,0544,Fergus Falls Public School District
+01,0545,Henning Public School District
+01,0547,Parkers Prairie Public School Dist.
+01,0548,Pelican Rapids Public School Dist.
+01,0549,Perham-Dent Public School District
+01,0550,Underwood Public School District
+01,0553,New York Mills Public School Dist.
+01,0561,Goodridge Public School District
+01,0564,Thief River Falls School District
+01,0577,Willow River Public School District
+01,0578,Pine City Public School District
+01,0581,Edgerton Public School District
+01,0592,Climax-Shelly Public Schools
+01,0593,Crookston Public School District
+01,0595,East Grand Forks Public School Dist
+01,0599,Fertile-Beltrami School District
+01,0600,Fisher Public School District
+01,0601,Fosston Public School District
+01,0621,Mounds View Public School District
+01,0622,North St Paul-Maplewood Oakdale Public School District
+01,0623,Roseville Public School District
+01,0624,White Bear Lake School District
+01,0625,St. Paul Public School District
+01,0630,Red Lake Falls Public School Dist.
+01,0635,Milroy Public School District
+01,0640,Wabasso Public School District
+01,0656,Faribault Public School District
+01,0659,Northfield Public School District
+01,0671,Hills-Beaver Creek School District
+01,0676,Badger Public School District
+01,0682,Roseau Public School District
+01,0690,Warroad Public School District
+01,0695,Chisholm Public School District
+01,0696,Ely Public School District
+01,0698,Floodwood Public School District
+01,0700,Hermantown Public School District
+01,0701,Hibbing Public School District
+01,0704,Proctor Public School District
+01,0706,Virginia Public School District
+01,0707,Nett Lake Public School District
+01,0709,Duluth Public School District
+01,0712,Mountain Iron-Buhl School District
+01,0716,Belle Plaine Public School District
+01,0717,Jordan Public School District
+01,0719,Prior Lake-Savage Area Schools
+01,0720,Shakopee Public School District
+01,0721,New Prague Area Schools
+01,0726,Becker Public School District
+01,0727,Big Lake Public School District
+01,0728,Elk River School District
+01,0738,Holdingford Public School District
+01,0739,Kimball Public School District
+01,0740,Melrose Public School District
+01,0741,Paynesville Public School District
+01,0742,St. Cloud Public School District
+01,0743,Sauk Centre Public School District
+01,0745,Albany Public School District
+01,0748,Sartell-St. Stephen School District
+01,0750,Rocori Public School District
+01,0756,Blooming Prairie Public School Dist
+01,0761,Owatonna Public School District
+01,0763,Medford Public School District
+01,0768,Hancock Public School District
+01,0771,Chokio-Alberta Public School Dist.
+01,0775,Kerkhoven-Murdock-Sunburg
+01,0777,Benson Public School District
+01,0786,Bertha-Hewitt Public School District
+01,0787,Browerville Public School District
+01,0801,Browns Valley Public School Dist.
+01,0803,Wheaton Area Public School District
+01,0811,Wabasha-Kellogg Public School Dist.
+01,0813,Lake City Public School District
+01,0818,Verndale Public School District
+01,0820,Sebeka Public School District
+01,0821,Menahga Public School District
+01,0829,Waseca Public School District
+01,0831,Forest Lake Public School District
+01,0832,Mahtomedi Public School District
+01,0833,South Washington County School Dist
+01,0834,Stillwater Area Public School Dist.
+01,0836,Butterfield Public School District
+01,0837,Madelia Public School District
+01,0840,St. James Public School District
+01,0846,Breckenridge Public School District
+01,0850,Rothsay Public School District
+01,0852,Campbell-Tintah Public School Dist.
+01,0857,Lewiston-Altura Public School Dist.
+01,0858,St. Charles Public School District
+01,0861,Winona Area Public School District
+01,0876,Annandale Public School District
+01,0877,Buffalo-Hanover-Montrose Public Sch
+01,0879,Delano Public School District
+01,0881,Maple Lake Public School District
+01,0882,Monticello Public School District
+01,0883,Rockford Public School District
+01,0885,St. Michael-Albertville School Dist
+01,0891,Canby Public School District
+01,0911,Cambridge-Isanti Public School Dist
+01,0912,Milaca Public School District
+01,0914,Ulen-Hitterdal Public School Dist
+01,2071,Lake Crystal-Wellcome Memorial
+01,2125,Triton School District
+01,2134,United South Central School Dist.
+01,2135,Maple River School District
+01,2137,Kingsland Public School District
+01,2142,St. Louis County School District
+01,2143,Waterville-Elysian-Morristown Public School District
+01,2144,Chisago Lakes School District
+01,2149,Minnewaska School District
+01,2154,Eveleth-Gilbert School District
+01,2155,Wadena-Deer Creek School District
+01,2159,Buffalo Lk-Hector-Stewart Public Sc
+01,2164,Dilworth-Glyndon-Felton
+01,2165,Hinckley-Finlayson School District
+01,2167,Lakeview School District
+01,2168,NRHEG School District
+01,2169,Murray County Central School Dist.
+01,2170,Staples-Motley School District
+01,2171,Kittson Central School District
+01,2172,Kenyon-Wanamingo School District
+01,2174,Pine River-Backus School District
+01,2176,Warren-Alvarado-Oslo School Dist.
+01,2180,MACCRAY School District
+01,2184,Luverne Public School District
+01,2190,Yellow Medicine East
+01,2198,Fillmore Central
+01,2215,Norman County East School District
+01,2310,Sibley East School District
+01,2311,Clearbrook-Gonvick School District
+01,2342,West Central Area
+01,2358,Tri-County School District
+01,2364,Belgrade-Brooten-Elrosa Public School District
+01,2365,G.F.W.
+01,2396,A.C.G.C. Public School District
+01,2397,Le Sueur-Henderson School District
+01,2448,Martin County West School District
+01,2527,Norman County West School District
+01,2534,Bird Island-Olivia-Lake Lillian Public School District
+01,2536,Granada Huntley East Chain
+01,2580,East Central School District
+01,2609,Win-E-Mac School District
+01,2683,Greenbush-Middle River School Dist.
+01,2687,Howard Lake-Waverly-Winsted
+01,2689,Pipestone Area School District
+01,2711,Mesabi East School District
+01,2752,Fairmont Area School District
+01,2753,Long Prairie-Grey Eagle School District
+01,2754,Cedar Mountain School District
+01,2769,Morris Area Public Schools
+01,2805,Zumbrota-Mazeppa School District
+01,2835,Janesville-Waldorf-Pemberton
+01,2853,Lac qui Parle Valley School Dist.
+01,2854,Ada-Borup Public School District
+01,2856,Stephen-Argyle Central Schools
+01,2859,Glencoe-Silver Lake School District
+01,2860,Blue Earth Area Public School
+01,2884,Red Rock Central School District
+01,2886,Glenville-Emmons School District
+01,2888,Clinton-Graceville-Beardsley
+01,2889,Lake Park Audubon School District
+01,2890,Renville County West School Dist.
+01,2895,Jackson County Central School Dist.
+01,2897,Redwood Area School District
+01,2898,Westbrook-Walnut Grove Schools
+01,2899,Plainview-Elgin-Millville
+01,2902,RTR Public Schools
+01,2903,Ortonville Public Schools
+01,2904,Tracy Area Public School District
+01,2905,Tri-City United School District
+01,2906,Red Lake County Central Public Schools
+01,2907,Round Lake-Brewster Public Schools
+01,2908,Brandon-Evansville Public Schools
+02,0323,Franconia Public School District
+02,0815,Prinsburg Public School District
+03,0001,Minneapolis Public School District
+03,0006,South St. Paul Public School Dist.
