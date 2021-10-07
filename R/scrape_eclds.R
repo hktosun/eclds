@@ -1,5 +1,6 @@
+#' Scrape ECLDS pages
 #'
-#'
+#' Scrape specific sections of the ECLDS.
 #' @importFrom magrittr %>%
 #'
 #' @param section "kindergarten" or "birth to prek"
@@ -39,9 +40,11 @@ scrape_eclds <- function(section, subsection, geography, year, browser = "firefo
 
 		school_districts <- school_districts$sd_id
 
-		df <- tidyr::expand_grid(school_district_id = school_districts, year = year) %>%
+		df <- tidyr::expand_grid(school_district_id = school_districts[1:2], year = year) %>%
 			dplyr::mutate(data = purrr::map2(school_district_id, year, ~get_tables(section, subsection, "school district", .x, .y, remdr)))
 	}
+
+	df <- clean_tables(df, section, subsection, geography)
 
 	df
 
