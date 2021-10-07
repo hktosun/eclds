@@ -22,7 +22,7 @@ To scrape the individuals sections in the website, use the function `scrape_ecld
 
 ``` r
 eclds::scrape_eclds(section = 'kindergarten', 
-					subsection = 'early care and education', 
-					geography = 'county', 
-					year = 2018:2020)
+subsection = 'early care and education', 
+geography = 'county', 
+year = 2018:2020)
 ```
