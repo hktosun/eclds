@@ -1,10 +1,13 @@
 
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
 # eclds
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-This package provides functions to scrape Minnesota Early Childhood Longitudinal Data System [website](http://eclds.mn.gov/).
+This package provides functions to scrape Minnesota Early Childhood
+Longitudinal Data System [website](http://eclds.mn.gov/).
 
 ## Installation
 
@@ -16,13 +19,18 @@ remotes::install_github("hktosun/eclds")
 
 ## Usage
 
-You need a Selenium Docker image running to use this package. Please follow the instructions provided [here](https://docs.ropensci.org/RSelenium/articles/docker.html). 
+You need a Selenium Docker image running to use this package. Please
+follow the instructions provided
+[here](https://docs.ropensci.org/RSelenium/articles/docker.html).
 
-To scrape the individuals sections in the website, use the function `scrape_eclds`. The code below scrapes the tables in the Early Care and Education subsection in Kindergarten section for each county between the school years 2018 and 2020.
+To scrape the individuals sections in the website, use the function
+`scrape_eclds`. The code below scrapes the tables in the Early Care and
+Education subsection in Kindergarten section for each county between the
+school years 2018 and 2020.
 
 ``` r
 eclds::scrape_eclds(section = 'kindergarten', 
-			subsection = 'early care and education', 
-			geography = 'county', 
-			year = 2018:2020)
+                    subsection = 'early care and education', 
+                    geography = 'county', 
+                    year = 2018:2020)
 ```
