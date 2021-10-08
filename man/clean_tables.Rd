@@ -7,7 +7,7 @@
 clean_tables(df, section, subsection, geography)
 }
 \arguments{
-\item{df}{Data fram}
+\item{df}{Data frame}
 
 \item{section}{Section}
 
