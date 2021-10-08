@@ -10,18 +10,18 @@
 
 clean_tables <- function(df, section, subsection, geography){
 
+	k <- df %>%
+		tidyr::unnest(data)
+
+	if(geography == "county"){
+		k <- k %>%
+			dplyr::group_by(county_id, year)
+	} else if(geography == "sd_id"){
+		k <- k %>%
+			dplyr::group_by(sd_id, year)
+	}
+
 	if(section == "birth to prek" & subsection == "scholarships"){
-
-		k <- df %>%
-			tidyr::unnest(data)
-
-		if(geography == "county"){
-			k <- k %>%
-				dplyr::group_by(county_id, year)
-		} else if(geography == "sd_id"){
-			k <- k %>%
-				dplyr::group_by(sd_id, year)
-		}
 
 		m <- k %>%
 			dplyr::mutate(id = dplyr::row_number()) %>%
@@ -44,18 +44,7 @@ clean_tables <- function(df, section, subsection, geography){
 		outcome <- list(table1 = r$data1, table2 = r$data2, table3 = r$data3)
 	}
 
-	if(section == "birth to k" & subsection == "parent aware"){
-
-		k <- df %>%
-			tidyr::unnest(data)
-
-		if(geography == "county"){
-			k <- k %>%
-				dplyr::group_by(county_id, year)
-		} else if(geography == "sd_id"){
-			k <- k %>%
-				dplyr::group_by(sd_id, year)
-		}
+	else if(section == "birth to k" & subsection == "parent aware"){
 
 		m <- k %>%
 			dplyr::mutate(id = dplyr::row_number()) %>%
@@ -93,18 +82,7 @@ clean_tables <- function(df, section, subsection, geography){
 
 	}
 
-	if(section == "birth to prek" & subsection == "early childhood screening"){
-
-		k <- df %>%
-			tidyr::unnest(data)
-
-		if(geography == "county"){
-			k <- k %>%
-				dplyr::group_by(county_id, year)
-		} else if(geography == "sd_id"){
-			k <- k %>%
-				dplyr::group_by(sd_id, year)
-		}
+	else if(section == "birth to prek" & subsection == "early childhood screening"){
 
 		m <- k %>%
 			dplyr::mutate(id = dplyr::row_number()) %>%
@@ -137,18 +115,7 @@ clean_tables <- function(df, section, subsection, geography){
 
 	}
 
-	if(section == "kindergarten" & subsection == "early care and education"){
-
-		k <- df %>%
-			tidyr::unnest(data)
-
-		if(geography == "county"){
-			k <- k %>%
-				dplyr::group_by(county_id, year)
-		} else if(geography == "sd_id"){
-			k <- k %>%
-				dplyr::group_by(sd_id, year)
-		}
+	else if(section == "kindergarten" & subsection == "early care and education"){
 
 		m <- k %>%
 			dplyr::mutate(id = dplyr::row_number()) %>%
@@ -187,18 +154,7 @@ clean_tables <- function(df, section, subsection, geography){
 
 	}
 
-	if(section == "kindergarten" & subsection == "child demographics"){
-
-		k <- df %>%
-			tidyr::unnest(data)
-
-		if(geography == "county"){
-			k <- k %>%
-				dplyr::group_by(county_id, year)
-		} else if(geography == "sd_id"){
-			k <- k %>%
-				dplyr::group_by(sd_id, year)
-		}
+	else if(section == "kindergarten" & subsection == "child demographics"){
 
 		m <- k %>%
 			dplyr::mutate(id = dplyr::row_number()) %>%
@@ -237,18 +193,7 @@ clean_tables <- function(df, section, subsection, geography){
 
 	}
 
-	if(section == "kindergarten" & subsection == "family demographics"){
-
-		k <- df %>%
-			tidyr::unnest(data)
-
-		if(geography == "county"){
-			k <- k %>%
-				dplyr::group_by(county_id, year)
-		} else if(geography == "sd_id"){
-			k <- k %>%
-				dplyr::group_by(sd_id, year)
-		}
+	else if(section == "kindergarten" & subsection == "family demographics"){
 
 		m <- k %>%
 			dplyr::mutate(id = dplyr::row_number()) %>%
@@ -285,18 +230,7 @@ clean_tables <- function(df, section, subsection, geography){
 
 	}
 
-	if(section == "kindergarten" & subsection == "economic and food assistance"){
-
-		k <- df %>%
-			tidyr::unnest(data)
-
-		if(geography == "county"){
-			k <- k %>%
-				dplyr::group_by(county_id, year)
-		} else if(geography == "sd_id"){
-			k <- k %>%
-				dplyr::group_by(sd_id, year)
-		}
+	else if(section == "kindergarten" & subsection == "economic and food assistance"){
 
 		m <- k %>%
 			dplyr::mutate(id = dplyr::row_number()) %>%
@@ -337,18 +271,7 @@ clean_tables <- function(df, section, subsection, geography){
 
 	}
 
-	if(section == "kindergarten" & subsection == "kindergarten attendance"){
-
-		k <- df %>%
-			tidyr::unnest(data)
-
-		if(geography == "county"){
-			k <- k %>%
-				dplyr::group_by(county_id, year)
-		} else if(geography == "sd_id"){
-			k <- k %>%
-				dplyr::group_by(sd_id, year)
-		}
+	else if(section == "kindergarten" & subsection == "kindergarten attendance"){
 
 		m <- k %>%
 			dplyr::mutate(id = dplyr::row_number()) %>%
