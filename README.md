@@ -24,10 +24,9 @@ follow the instructions provided
 [here](https://docs.ropensci.org/RSelenium/articles/docker.html).
 
 To scrape the individuals sections in the website, use the function
-[`scrape_eclds()`](../reference/scrape_eclds.html). The code below
-scrapes the tables in the Early Care and Education subsection in
-Kindergarten section for each county between the school years 2018 and
-2020.
+`scrape_eclds()`. The code below scrapes the tables in the Early Care
+and Education subsection in Kindergarten section for each county between
+the school years 2018 and 2020.
 
 ``` r
 eclds::scrape_eclds(section = 'kindergarten', 
