@@ -1,6 +1,5 @@
 #' @importFrom magrittr %>%
 
-#' @export
 get_tables <- function(section, subsection, geography, i, year, remdr){
 
 	df <- tryCatch(
@@ -161,7 +160,7 @@ get_tables <- function(section, subsection, geography, i, year, remdr){
 			remdr$open()
 			remdr$navigate(link)
 
-			Sys.sleep(10)
+			Sys.sleep(5)
 
 			remdr$screenshot(file = "abc.png")
 
