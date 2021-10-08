@@ -7,6 +7,8 @@
 #' @param subsection "early care and education", "child demographics", "family demographics", "economic and food assistance", "kindergarten attendance", "kindergarten summary" for kindergarten; "early childhood screening", "scholarships", "parent aware", "community assessment" for "birth to prek"
 #' @param geography "county" or "school district"
 #' @param year Vector of years. 2014 to 2020 as of September 2021.
+#' @param browser Browser in the remote driver
+#' @param port Port for the remote driver
 
 #' @export
 
