@@ -3,9 +3,6 @@
 
 # eclds
 
-<!-- badges: start -->
-<!-- badges: end -->
-
 This package provides functions to scrape the [Minnesota Early Childhood
 Longitudinal Data System website](http://eclds.mn.gov/).
 
