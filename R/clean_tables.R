@@ -124,8 +124,9 @@ clean_tables <- function(df, section, subsection, geography){
 	}
 
 	r <- r %>%
-		dplyr::mutate_at(dplyr::vars(dplyr::one_of("data1", "data2", "data3")), ~purrr::map(.x, ~tidyr::separate(.x, count_frac, into = c("count", "frac"), sep = " "))) %>%
-		dplyr::mutate_at(dplyr::vars(dplyr::one_of("data1", "data2", "data3")), ~purrr::map(.x, ~dplyr::mutate(.x, count = dplyr::case_when(count == "N/A" ~ 0, count == "CTSTR" ~ NA_real_, TRUE ~ readr::parse_number(count))))) %>%
+		dplyr::mutate_at(dplyr::vars(dplyr::one_of("data1", "data2", "data3")), ~purrr::map(.x, ~tidyr::separate(.x, count_frac, into = c("count", "frac"), sep = " ", fill = 'right'))) %>%
+		dplyr::mutate_at(dplyr::vars(dplyr::one_of("data1", "data2", "data3")), ~purrr::map(.x, ~dplyr::mutate(.x, count = dplyr::case_when(count == "N/A" ~ "0", count == "CTSTR" ~ NA_character_, TRUE ~ count)))) %>%
+		dplyr::mutate_at(dplyr::vars(dplyr::one_of("data1", "data2", "data3")), ~purrr::map(.x, ~dplyr::mutate(.x, count = readr::parse_number(count)))) %>%
 		dplyr::mutate_at(dplyr::vars(dplyr::one_of("data1", "data2", "data3")), ~purrr::map(.x, ~dplyr::mutate(.x, frac = stringr::str_replace_all(frac, "\\(|%|\\)|>", ""))))
 
 	if(section == "birth to prek" & subsection == "early childhood screening"){
