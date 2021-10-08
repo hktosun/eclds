@@ -48,4 +48,4 @@ Available sections and subsections are as follows:
 
 Available geographies are `"county"` and `"school district"`, and the
 available years are from (school years) `2014` to `2020` as of October
-2021.
+7, 2021.

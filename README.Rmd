@@ -13,6 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
+
 # eclds
 
 This package provides functions to scrape the [Minnesota Early Childhood Longitudinal Data System website](http://eclds.mn.gov/).
@@ -53,5 +54,4 @@ Available sections and subsections are as follows:
 | `"kindergarten"` 		| `"kindergarten summary"`         	|
 
 
-
-Available geographies are `"county"` and `"school district"`, and the available years are from (school years) `2014` to `2020` as of October 2021.
+Available geographies are `"county"` and `"school district"`, and the available years are from (school years) `2014` to `2020` as of October 7, 2021.
