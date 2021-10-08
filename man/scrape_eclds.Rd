@@ -21,6 +21,10 @@ scrape_eclds(
 \item{geography}{"county" or "school district"}
 
 \item{year}{Vector of years. 2014 to 2020 as of September 2021.}
+
+\item{browser}{Browser in the remote driver}
+
+\item{port}{Port for the remote driver}
 }
 \description{
 Scrape specific sections of the ECLDS.
