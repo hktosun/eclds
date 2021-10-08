@@ -18,7 +18,7 @@
       "<link id=\"css\" rel=\"stylesheet\" href=\"https://bootswatch.com/3/flatly/bootstrap.css\" onload=\"document.documentElement.style.display = ''\">"
     );
   }
-</script><title>What the Package Does (One Line, Title Case) • eclds</title>
+</script><title>This package helps scrape the (Minnesota Early Childhood Longitudinal Data System (ECLDS) website)[mn.eclds.gov] • eclds</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- Flatly Theme - Light  --><link id="css-light" rel="stylesheet" href="https://bootswatch.com/3/flatly/bootstrap.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
 <!-- Darkly Theme - Dark --><link id="css-dark" rel="stylesheet" href="https://bootswatch.com/3/darkly/bootstrap.css" media="(prefers-color-scheme: dark)">
 <!-- preferably CSS --><link rel="stylesheet" href="preferably.css">
@@ -28,8 +28,8 @@
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="What the Package Does (One Line, Title Case)">
-<meta property="og:description" content="This package helps scrape (ECLDS website)[mn.eclds.gov]">
+<script src="pkgdown.js"></script><meta property="og:title" content="This package helps scrape the (Minnesota Early Childhood Longitudinal Data System (ECLDS) website)[mn.eclds.gov]">
+<meta property="og:description" content="This package helps scrape the (Minnesota Early Childhood Longitudinal Data System (ECLDS) website)[mn.eclds.gov].">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -92,7 +92,7 @@
 <a href="#eclds" class="anchor"></a>eclds</h1></div>
 <!-- badges: start -->
 <!-- badges: end -->
-<p>This package provides functions to scrape Minnesota Early Childhood Longitudinal Data System <a href="http://eclds.mn.gov/">website</a>.</p>
+<p>This package provides functions to scrape the <a href="http://eclds.mn.gov/">Minnesota Early Childhood Longitudinal Data System website</a>.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -104,12 +104,60 @@
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
 <p>You need a Selenium Docker image running to use this package. Please follow the instructions provided <a href="https://docs.ropensci.org/RSelenium/articles/docker.html">here</a>.</p>
-<p>To scrape the individuals sections in the website, use the function <code>scrape_eclds</code>. The code below scrapes the tables in the Early Care and Education subsection in Kindergarten section for each county between the school years 2018 and 2020.</p>
+<p>To scrape the individuals sections in the website, use the function <code><a href="reference/scrape_eclds.html">scrape_eclds()</a></code>. The code below scrapes the tables in the Early Care and Education subsection in Kindergarten section for each county between the school years 2018 and 2020.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">eclds</span><span class="fu">::</span><span class="fu"><a href="reference/scrape_eclds.html">scrape_eclds</a></span><span class="op">(</span>section <span class="op">=</span> <span class="st">'kindergarten'</span>, 
                     subsection <span class="op">=</span> <span class="st">'early care and education'</span>, 
                     geography <span class="op">=</span> <span class="st">'county'</span>, 
                     year <span class="op">=</span> <span class="fl">2018</span><span class="op">:</span><span class="fl">2020</span><span class="op">)</span></code></pre></div>
+<p>Available sections and subsections are as follows:</p>
+<table class="table">
+<thead><tr class="header">
+<th>section</th>
+<th>subsection</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>"birth to prek"</code></td>
+<td><code>"early childhood screening"</code></td>
+</tr>
+<tr class="even">
+<td><code>"birth to prek"</code></td>
+<td><code>"scholarships"</code></td>
+</tr>
+<tr class="odd">
+<td><code>"birth to prek"</code></td>
+<td><code>"parent aware"</code></td>
+</tr>
+<tr class="even">
+<td><code>"kindergarten"</code></td>
+<td><code>"early care and education"</code></td>
+</tr>
+<tr class="odd">
+<td><code>"kindergarten"</code></td>
+<td><code>"child demographics"</code></td>
+</tr>
+<tr class="even">
+<td><code>"kindergarten"</code></td>
+<td><code>"family demographics"</code></td>
+</tr>
+<tr class="odd">
+<td><code>"kindergarten"</code></td>
+<td><code>"economic and food assistance"</code></td>
+</tr>
+<tr class="even">
+<td><code>"kindergarten"</code></td>
+<td><code>"kindergarten attendance"</code></td>
+</tr>
+<tr class="odd">
+<td><code>"kindergarten"</code></td>
+<td><code>"kindergarten summary"</code></td>
+</tr>
+</tbody>
+</table>
+<p>Available geographies are <code>"county"</code> and <code>"school district"</code>, and the available years are from (school years) <code>2014</code> to <code>2020</code> as of October</p>
+<ol><li>
+</li></ol>
 </div>
 </div>
   </div>
