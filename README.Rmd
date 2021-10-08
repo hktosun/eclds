@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-This package provides functions to scrape Minnesota Early Childhood Longitudinal Data System [website](http://eclds.mn.gov/).
+This package provides functions to scrape the [Minnesota Early Childhood Longitudinal Data System website](http://eclds.mn.gov/).
 
 ## Installation
 
@@ -40,3 +40,4 @@ eclds::scrape_eclds(section = 'kindergarten',
 					geography = 'county', 
 					year = 2018:2020)
 ```
+

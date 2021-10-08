@@ -6,8 +6,8 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-This package provides functions to scrape Minnesota Early Childhood
-Longitudinal Data System [website](http://eclds.mn.gov/).
+This package provides functions to scrape the [Minnesota Early Childhood
+Longitudinal Data System website](http://eclds.mn.gov/).
 
 ## Installation
 
