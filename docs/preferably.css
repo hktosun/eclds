@@ -39,5 +39,5 @@ a, a:hover, a:focus {
     }
 }
 
-table { border-collapse:collapse; }
-table tr { border-bottom: 1px solid #dcdcdc; }
+.fp { 
+	border-bottom: 1px solid #dcdcdc;}
