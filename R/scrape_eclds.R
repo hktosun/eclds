@@ -32,7 +32,7 @@ scrape_eclds <- function(section, subsection, geography, year, browser = "firefo
 	remdr <- create_remotedriver(browser, port)
 
 	if(geography == "county"){
-		df <- tidyr::expand_grid(county_mn_id = counties$county_mn_id[1:2], year = year) %>%
+		df <- tidyr::expand_grid(county_mn_id = counties$county_mn_id, year = year) %>%
 			dplyr::mutate(data = purrr::map2(.data$county_mn_id, .data$year, ~get_tables(section, subsection, "county", .x, .y, remdr)))
 
 		df <- df %>%
@@ -41,7 +41,7 @@ scrape_eclds <- function(section, subsection, geography, year, browser = "firefo
 
 	} else if(geography == "school district"){
 
-		df <- tidyr::expand_grid(sd_id = school_districts$sd_id[1:2], year = year) %>%
+		df <- tidyr::expand_grid(sd_id = school_districts$sd_id, year = year) %>%
 			dplyr::mutate(data = purrr::map2(.data$sd_id, .data$year, ~get_tables(section, subsection, "school district", .x, .y, remdr)))
 
 		df <- df %>%
@@ -51,7 +51,6 @@ scrape_eclds <- function(section, subsection, geography, year, browser = "firefo
 
 	df <- clean_tables(df, section, subsection, geography)
 
-	df
 
 }
 
