@@ -25,23 +25,28 @@ scrape_eclds <- function(section, subsection, geography, year, browser = "firefo
 
 	if(section == "kindergarten" & !subsection %in% c("early care and education", "child demographics", "family demographics", "economic and food assistance", "kindergarten attendance", "kindergarten summary")){
 		stop('subsection for kindergarten must be one of "early care and education", "child demographics", "family demographics", "economic and food assistance", "kindergarten attendance", "kindergarten summary".')
-	}
-
-	else if(section == "birth to prek" & !subsection %in% c("early childhood screening", "scholarships", "parent aware")){
+	} else if(section == "birth to prek" & !subsection %in% c("early childhood screening", "scholarships", "parent aware")){
 		stop('`subsection for birth to prek must be one of "early childhood screening", "scholarships", "parent aware".')
 	}
 
 	remdr <- create_remotedriver(browser, port)
 
 	if(geography == "county"){
-		df <- tidyr::expand_grid(county_id = counties$county_mn_id[1:2], year = year) %>%
-			dplyr::mutate(data = purrr::map2(.data$county_id, .data$year, ~get_tables(section, subsection, "county", .x, .y, remdr)))
-	}
+		df <- tidyr::expand_grid(county_mn_id = counties$county_mn_id[1:2], year = year) %>%
+			dplyr::mutate(data = purrr::map2(.data$county_mn_id, .data$year, ~get_tables(section, subsection, "county", .x, .y, remdr)))
 
-	else if(geography == "school district"){
+		df <- df %>%
+			dplyr::left_join(counties, by = 'county_mn_id') %>%
+			dplyr::select(.data$county_id, .data$county, .data$year, .data$data)
 
-		df <- tidyr::expand_grid(school_district_id = school_districts$sd_id[1:2], year = year) %>%
-			dplyr::mutate(data = purrr::map2(.data$school_district_id, .data$year, ~get_tables(section, subsection, "school district", .x, .y, remdr)))
+	} else if(geography == "school district"){
+
+		df <- tidyr::expand_grid(sd_id = school_districts$sd_id[1:2], year = year) %>%
+			dplyr::mutate(data = purrr::map2(.data$sd_id, .data$year, ~get_tables(section, subsection, "school district", .x, .y, remdr)))
+
+		df <- df %>%
+			dplyr::left_join(school_districts, by = 'sd_id') %>%
+			dplyr::select(.data$school_district_id, .data$school_district_name, .data$year, .data$data)
 	}
 
 	df <- clean_tables(df, section, subsection, geography)
