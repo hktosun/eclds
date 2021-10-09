@@ -24,7 +24,7 @@ clean_tables <- function(df, section, subsection, geography){
 	}
 
 	if(section == "birth to prek" & subsection == "early childhood screening"){
-		ntables <- 2
+		ntables <- 1
 	} else {
 		ntables <- 3
 	}
@@ -50,24 +50,20 @@ clean_tables <- function(df, section, subsection, geography){
 	else if(section == "birth to prek" & subsection == "parent aware"){
 
 		r <- m %>%
-			dplyr::mutate(data1 = purrr::map(.data$data1, ~setNames(., c("pa_rating", "ccap", "els", "both")))) %>%
+			dplyr::mutate(data1 = purrr::map(.data$data1, ~setNames(., c("quality_rating", "CCAP Only", "ELS Only", "Both CCAP and ELS")))) %>%
 			dplyr::mutate(data2 = purrr::map(.data$data2, ~setNames(., c("site_type", "four_star", "three_star", "two_star", "one_star")))) %>%
 			dplyr::mutate(data3 = purrr::map(.data$data3, ~setNames(., c("site_type", "four_star", "three_star", "two_star", "one_star")))) %>%
-			dplyr::mutate(data1 = purrr::map(.data$data1, ~tidyr::pivot_longer(.x, ccap:both, names_to = "program", values_to = "count_frac"))) %>%
-			dplyr::mutate(data2 = purrr::map(.data$data2, ~tidyr::pivot_longer(.x, four_star:one_star, names_to = "pa_rating", values_to = "count_frac"))) %>%
-			dplyr::mutate(data3 = purrr::map(.data$data3, ~tidyr::pivot_longer(.x, four_star:one_star, names_to = "pa_rating", values_to = "count_frac"))) %>%
-			dplyr::mutate_at(dplyr::vars(data2, data3), ~purrr::map(., ~dplyr::mutate(.x, pa_rating = dplyr::case_when(pa_rating == "four_star" ~ "Four Stars", pa_rating == "three_star" ~ "Three Stars", pa_rating == "two_star" ~ "Two Stars", pa_rating == "one_star" ~ "One Star"))))
+			dplyr::mutate(data1 = purrr::map(.data$data1, ~tidyr::pivot_longer(.x, `CCAP Only`:`Both CCAP and ELS`, names_to = "funding", values_to = "count_frac"))) %>%
+			dplyr::mutate(data2 = purrr::map(.data$data2, ~tidyr::pivot_longer(.x, four_star:one_star, names_to = "quality_rating", values_to = "count_frac"))) %>%
+			dplyr::mutate(data3 = purrr::map(.data$data3, ~tidyr::pivot_longer(.x, four_star:one_star, names_to = "quality_rating", values_to = "count_frac"))) %>%
+			dplyr::mutate_at(dplyr::vars(.data$data2, .data$data3), ~purrr::map(., ~dplyr::mutate(.x, quality_rating = dplyr::case_when(quality_rating == "four_star" ~ "Four Stars", quality_rating == "three_star" ~ "Three Stars", quality_rating == "two_star" ~ "Two Stars", quality_rating == "one_star" ~ "One Star"))))
 
 	}
 
 	else if(section == "birth to prek" & subsection == "early childhood screening"){
 
 		r <- m %>%
-			dplyr::mutate(data1 = purrr::map(.data$data1, ~setNames(., c("screening_age", "count_frac")))) %>%
-			dplyr::mutate(data2 = purrr::map(.data$data2, ~setNames(., c("screening_year", "age_3", "age_4", "age_5_6", "drop")))) %>%
-			dplyr::mutate(data2 = purrr::map(.data$data2, ~dplyr::select(.x, -drop))) %>%
-			dplyr::mutate(data2 = purrr::map(.data$data2, ~tidyr::pivot_longer(.x, age_3:age_5_6, names_to = "age", values_to = "count_frac"))) %>%
-			dplyr::mutate(data2 = purrr::map(.data$data2, ~dplyr::mutate(.x, age = dplyr::case_when(age == "age_3" ~ "Age 3", age == "age_4" ~ "Age 4", age == "age_5_6" ~ "Age 5-6"))))
+			dplyr::mutate(data1 = purrr::map(.data$data1, ~setNames(., c("screening_age", "count_frac"))))
 
 	}
 
@@ -132,38 +128,36 @@ clean_tables <- function(df, section, subsection, geography){
 		dplyr::mutate_at(dplyr::vars(dplyr::one_of("data1", "data2", "data3")), ~purrr::map(.x, ~tidyr::separate(.x, count_frac, into = c("count", "frac"), sep = " ", fill = 'right'))) %>%
 		dplyr::mutate_at(dplyr::vars(dplyr::one_of("data1", "data2", "data3")), ~purrr::map(.x, ~dplyr::mutate(.x, count = dplyr::case_when(count == "N/A" ~ "0", count == "CTSTR" ~ NA_character_, TRUE ~ count)))) %>%
 		dplyr::mutate_at(dplyr::vars(dplyr::one_of("data1", "data2", "data3")), ~purrr::map(.x, ~dplyr::mutate(.x, count = readr::parse_number(count)))) %>%
-		dplyr::mutate_at(dplyr::vars(dplyr::one_of("data1", "data2", "data3")), ~purrr::map(.x, ~dplyr::mutate(.x, frac = stringr::str_replace_all(frac, "\\(|%|\\)|>", ""))))
+		dplyr::mutate_at(dplyr::vars(dplyr::one_of("data1", "data2", "data3")), ~purrr::map(.x, ~dplyr::mutate(.x, frac = stringr::str_replace_all(frac, "\\(|%|\\)", ""))))
 
 	if(section == "birth to prek" & subsection == "early childhood screening"){
 
 		table1 <- r %>%
-			dplyr::select(-.data$data2) %>%
-			dplyr::filter(purrr::map_dbl(data1, ~nrow(.x)) > 0) %>%
-			tidyr::unnest(.data$data1)
+			dplyr::filter(purrr::map_dbl(.data$data1, ~nrow(.x)) > 0) %>%
+			tidyr::unnest(.data$data1) %>%
+			dplyr::ungroup()
 
-		table2 <- r %>%
-			dplyr::select(-.data$data1) %>%
-			dplyr::filter(purrr::map_dbl(data2, ~nrow(.x)) > 0) %>%
-			tidyr::unnest(.data$data2)
-
-		output <- list(table1 = table1, table2 = table2)
+		output <- list(table1 = table1)
 
 	} else {
 
 		table1 <- r %>%
 			dplyr::select(-.data$data2, -.data$data3) %>%
-			dplyr::filter(purrr::map_dbl(data1, ~nrow(.x)) > 0) %>%
-			tidyr::unnest(.data$data1)
+			dplyr::filter(purrr::map_dbl(.data$data1, ~nrow(.x)) > 0) %>%
+			tidyr::unnest(.data$data1) %>%
+			dplyr::ungroup()
 
 		table2 <- r %>%
 			dplyr::select(-.data$data1, -.data$data3) %>%
-			dplyr::filter(purrr::map_dbl(data2, ~nrow(.x)) > 0) %>%
-			tidyr::unnest(.data$data2)
+			dplyr::filter(purrr::map_dbl(.data$data2, ~nrow(.x)) > 0) %>%
+			tidyr::unnest(.data$data2) %>%
+			dplyr::ungroup()
 
 		table3 <- r %>%
 			dplyr::select(-.data$data1, -.data$data2) %>%
-			dplyr::filter(purrr::map_dbl(data3, ~nrow(.x)) > 0) %>%
-			tidyr::unnest(.data$data3)
+			dplyr::filter(purrr::map_dbl(.data$data3, ~nrow(.x)) > 0) %>%
+			tidyr::unnest(.data$data3) %>%
+			dplyr::ungroup()
 
 		output <- list(table1 = table1, table2 = table2, table3 = table3)
 
