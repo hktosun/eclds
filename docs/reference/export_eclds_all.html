@@ -22,7 +22,7 @@
   }
 </script>
 
-<title>Create Remote Driver — create_remotedriver • eclds</title>
+<title>Export ECLDS data — export_eclds_all • eclds</title>
 
 
 <!-- jquery -->
@@ -65,8 +65,8 @@
 
 
 
-<meta property="og:title" content="Create Remote Driver — create_remotedriver" />
-<meta property="og:description" content="Create remote driver for navigation" />
+<meta property="og:title" content="Export ECLDS data — export_eclds_all" />
+<meta property="og:description" content="Export ECLDS data coming from scraping all (main) tables to data files" />
 
 
 
@@ -142,27 +142,27 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create Remote Driver</h1>
-    <small class="dont-index">Source: <a href='https://github.com/hktosun/eclds/blob/master/R/create_remotedriver.R'><code>R/create_remotedriver.R</code></a></small>
-    <div class="hidden name"><code>create_remotedriver.Rd</code></div>
+    <h1>Export ECLDS data</h1>
+    <small class="dont-index">Source: <a href='https://github.com/hktosun/eclds/blob/master/R/export_tables.R'><code>R/export_tables.R</code></a></small>
+    <div class="hidden name"><code>export_eclds_all.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Create remote driver for navigation</p>
+    <p>Export ECLDS data coming from scraping all (main) tables to data files</p>
     </div>
 
-    <pre class="usage"><span class='fu'>create_remotedriver</span><span class='op'>(</span>browser <span class='op'>=</span> <span class='st'>"firefox"</span>, port <span class='op'>=</span> <span class='fl'>4445</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>export_eclds_all</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>path</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>browser</th>
-      <td><p>Browser (default is set to 'firefox')</p></td>
+      <th>data</th>
+      <td><p>ECLDS data acquired using <code>scrape_eclds_all</code>.</p></td>
     </tr>
     <tr>
-      <th>port</th>
-      <td><p>Port (default is set to 4445)</p></td>
+      <th>path</th>
+      <td><p>Path of the folder to write the files</p></td>
     </tr>
     </table>
 
