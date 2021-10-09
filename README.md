@@ -34,7 +34,7 @@ eclds::scrape_eclds(section = 'kindergarten',
 
 Available sections and subsections are as follows:
 
-| Section           | Subsection                       | Available Geography             |
+| Section           | Subsection                       | Available Geographies           |
 |-------------------|----------------------------------|---------------------------------|
 | `"birth to prek"` | `"early childhood screening"`    | `"county"`, `"school district"` |
 | `"birth to prek"` | `"scholarships"`                 | `"county"`, `"school district"` |
@@ -46,6 +46,4 @@ Available sections and subsections are as follows:
 | `"kindergarten"`  | `"kindergarten attendance"`      | `"county"`, `"school district"` |
 | `"kindergarten"`  | `"kindergarten summary"`         | `"county"`, `"school district"` |
 
-Available geographies are `"county"` and `"school district"`, and the
-available years are from (school years) `2014` to `2020` as of October
-7, 2021.
+The available years are from `2014` to `2020` as of October 7, 2021.
