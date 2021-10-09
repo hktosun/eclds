@@ -160,7 +160,7 @@ get_tables <- function(section, subsection, geography, i, year, remdr){
 			remdr$open()
 			remdr$navigate(link)
 
-			Sys.sleep(5)
+			Sys.sleep(10)
 
 			remdr$screenshot(file = "abc.png")
 
