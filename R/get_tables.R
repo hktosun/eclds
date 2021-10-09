@@ -157,12 +157,10 @@ get_tables <- function(section, subsection, geography, i, year, remdr){
 			}
 
 
-			remdr$open()
+			remdr$open(silent = TRUE)
 			remdr$navigate(link)
-
-			Sys.sleep(10)
-
-			remdr$screenshot(file = "abc.png")
+			print(paste(section, subsection, geography, i, year, sep = ", "))
+			Sys.sleep(5)
 
 			html <- remdr$getPageSource()[[1]] %>%
 				rvest::read_html()
