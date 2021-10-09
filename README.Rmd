@@ -41,17 +41,17 @@ eclds::scrape_eclds(section = 'kindergarten',
 
 Available sections and subsections are as follows:
 
-| section         		| subsection                    |
-| --------------------- | ----------------------------- |
-| `"birth to prek"` 	| `"early childhood screening"`    	|
-| `"birth to prek"` 	| `"scholarships"`                 	|
-| `"birth to prek"` 	| `"parent aware"`                 	|
-| `"kindergarten"` 		| `"early care and education"`     	|
-| `"kindergarten"` 		| `"child demographics"`           	|
-| `"kindergarten"` 		| `"family demographics"`          	|
-| `"kindergarten"` 		| `"economic and food assistance"` 	|
-| `"kindergarten"` 		| `"kindergarten attendance"`      	|
-| `"kindergarten"` 		| `"kindergarten summary"`         	|
+| Section         		| Subsection                    	| Available Geography   			 |
+| --------------------- | ---------------------------------	| ---------------------------------- | 
+| `"birth to prek"` 	| `"early childhood screening"`    	| `"county"`, `"school district"` 	 |
+| `"birth to prek"` 	| `"scholarships"`                 	| `"county"`, `"school district"` 	 |
+| `"birth to prek"` 	| `"parent aware"`                 	| `"county"`					 	 |
+| `"kindergarten"` 		| `"early care and education"`     	| `"county"`, `"school district"` 	 |
+| `"kindergarten"` 		| `"child demographics"`           	| `"county"`, `"school district"` 	 |
+| `"kindergarten"` 		| `"family demographics"`          	| `"county"`, `"school district"` 	 |
+| `"kindergarten"` 		| `"economic and food assistance"` 	| `"county"`, `"school district"` 	 |
+| `"kindergarten"` 		| `"kindergarten attendance"`      	| `"county"`, `"school district"` 	 |
+| `"kindergarten"` 		| `"kindergarten summary"`         	| `"county"`, `"school district"` 	 |
 
 
 Available geographies are `"county"` and `"school district"`, and the available years are from (school years) `2014` to `2020` as of October 7, 2021.
