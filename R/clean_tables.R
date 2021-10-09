@@ -20,7 +20,7 @@ clean_tables <- function(df, section, subsection, geography){
 			dplyr::group_by(.data$county_id, .data$year)
 	} else if(geography == "sd_id"){
 		k <- k %>%
-			dplyr::group_by(.data$sd_id, .data$year)
+			dplyr::group_by(.data$school_district_id, .data$year)
 	}
 
 	if(section == "birth to prek" & subsection == "early childhood screening"){
@@ -47,7 +47,7 @@ clean_tables <- function(df, section, subsection, geography){
 
 	}
 
-	else if(section == "birth to k" & subsection == "parent aware"){
+	else if(section == "birth to prek" & subsection == "parent aware"){
 
 		r <- m %>%
 			dplyr::mutate(data1 = purrr::map(.data$data1, ~setNames(., c("pa_rating", "ccap", "els", "both")))) %>%
@@ -55,7 +55,8 @@ clean_tables <- function(df, section, subsection, geography){
 			dplyr::mutate(data3 = purrr::map(.data$data3, ~setNames(., c("site_type", "four_star", "three_star", "two_star", "one_star")))) %>%
 			dplyr::mutate(data1 = purrr::map(.data$data1, ~tidyr::pivot_longer(.x, ccap:both, names_to = "program", values_to = "count_frac"))) %>%
 			dplyr::mutate(data2 = purrr::map(.data$data2, ~tidyr::pivot_longer(.x, four_star:one_star, names_to = "pa_rating", values_to = "count_frac"))) %>%
-			dplyr::mutate(data3 = purrr::map(.data$data3, ~tidyr::pivot_longer(.x, four_star:one_star, names_to = "pa_rating", values_to = "count_frac")))
+			dplyr::mutate(data3 = purrr::map(.data$data3, ~tidyr::pivot_longer(.x, four_star:one_star, names_to = "pa_rating", values_to = "count_frac"))) %>%
+			dplyr::mutate_at(dplyr::vars(data2, data3), ~purrr::map(., ~dplyr::mutate(.x, pa_rating = dplyr::case_when(pa_rating == "four_star" ~ "Four Stars", pa_rating == "three_star" ~ "Three Stars", pa_rating == "two_star" ~ "Two Stars", pa_rating == "one_star" ~ "One Star"))))
 
 	}
 
@@ -65,7 +66,8 @@ clean_tables <- function(df, section, subsection, geography){
 			dplyr::mutate(data1 = purrr::map(.data$data1, ~setNames(., c("screening_age", "count_frac")))) %>%
 			dplyr::mutate(data2 = purrr::map(.data$data2, ~setNames(., c("screening_year", "age_3", "age_4", "age_5_6", "drop")))) %>%
 			dplyr::mutate(data2 = purrr::map(.data$data2, ~dplyr::select(.x, -drop))) %>%
-			dplyr::mutate(data2 = purrr::map(.data$data2, ~tidyr::pivot_longer(.x, age_3:age_5_6, names_to = "age", values_to = "count_frac")))
+			dplyr::mutate(data2 = purrr::map(.data$data2, ~tidyr::pivot_longer(.x, age_3:age_5_6, names_to = "age", values_to = "count_frac"))) %>%
+			dplyr::mutate(data2 = purrr::map(.data$data2, ~dplyr::mutate(.x, age = dplyr::case_when(age == "age_3" ~ "Age 3", age == "age_4" ~ "Age 4", age == "age_5_6" ~ "Age 5-6"))))
 
 	}
 
@@ -87,7 +89,10 @@ clean_tables <- function(df, section, subsection, geography){
 			dplyr::mutate(data2 = purrr::map(.data$data2, ~setNames(., c("race_ethnicity", "with_ece_participation", "without_ece_participation")))) %>%
 			dplyr::mutate(data3 = purrr::map(.data$data3, ~setNames(., c("race_ethnicity", "ccap", "ecfe", "ecse", "prek")))) %>%
 			dplyr::mutate(data2 = purrr::map(.data$data2, ~tidyr::pivot_longer(.x, 2:3, names_to = "ece_participation", values_to = "count_frac"))) %>%
-			dplyr::mutate(data3 = purrr::map(.data$data3, ~tidyr::pivot_longer(.x, 2:5, names_to = "program", values_to = "count_frac")))
+			dplyr::mutate(data2 = purrr::map(.data$data2, ~dplyr::mutate(.x, ece_participation = dplyr::case_when(ece_participation == "with_ece_participation" ~ "Known public ECE participation", ece_participation == "without_ece_participation" ~ "No ECE data available")))) %>%
+			dplyr::mutate(data3 = purrr::map(.data$data3, ~tidyr::pivot_longer(.x, 2:5, names_to = "program", values_to = "count_frac"))) %>%
+			dplyr::mutate(data3 = purrr::map(.data$data3, ~dplyr::mutate(.x, program = dplyr::case_when(program == "ccap" ~ "Child Care Assistance Program (CCAP)", program == "ecfe" ~ "Early Childhood Family Education (ECFE)", program == "ecse" ~ "Early Childhood Special Education (ECSE)", program == "prek" ~ "MN District Preschool"))))
+
 
 	}
 
@@ -107,8 +112,9 @@ clean_tables <- function(df, section, subsection, geography){
 			dplyr::mutate(data3 = purrr::map(.data$data3, ~setNames(., c("program", "mfip", "food_only", "no_assistance")))) %>%
 			dplyr::mutate(data2 = purrr::map(.data$data2, ~dplyr::select(., -drop))) %>%
 			dplyr::mutate(data2 = purrr::map(.data$data2, ~tidyr::pivot_longer(.x, with_ece:without_ece, names_to = "ece_participation", values_to = "count_frac"))) %>%
+			dplyr::mutate(data2 = purrr::map(.data$data2, ~dplyr::mutate(.x, ece_participation = dplyr::case_when(ece_participation == "with_ece" ~ "Known public ECE participation", ece_participation == "without_ece" ~ "No ECE data available")))) %>%
 			dplyr::mutate(data3 = purrr::map(.data$data3, ~tidyr::pivot_longer(.x, c(mfip, food_only, no_assistance), names_to = "assistance", values_to = "count_frac"))) %>%
-			dplyr::mutate(data3 = purrr::map(.data$data3, ~dplyr::mutate(.x, program = dplyr::case_when(program == 'Child Care Assistance Program (CCAP)' ~ 'ccap', program == 'Early Childhood Family Education (ECFE)' ~ 'ecfe', program == 'Early Childhood Special Education (ECSE)' ~ 'ecse', program == 'MN District Preschool' ~ 'prek'))))
+			dplyr::mutate(data3 = purrr::map(.data$data3, ~dplyr::mutate(.x, assistance = dplyr::case_when(assistance == "mfip" ~ "MFIP/DWP", assistance == "food_only" ~ "Food Assistance Only (No MFIP/DWP)", assistance == "no_assistance" ~ "No MFIP/DWP or Food Assistance"))))
 
 	}
 
@@ -116,10 +122,9 @@ clean_tables <- function(df, section, subsection, geography){
 
 		r <- m %>%
 			dplyr::mutate(data1 = purrr::map(.data$data1, ~setNames(., c("attendance", "count_frac")))) %>%
-			dplyr::mutate(data2 = purrr::map(.data$data2, ~setNames(., c("age_at_screening", "between_0_90", "between_90_95", "between_96_100")))) %>%
-			dplyr::mutate(data3 = purrr::map(.data$data3, ~setNames(., c("program", "between_0_90", "between_90_95", "between_96_100")))) %>%
-			dplyr::mutate_at(dplyr::vars(.data$data2, .data$data3), ~purrr::map(.x, ~tidyr::pivot_longer(.x, between_0_90:between_96_100, names_to = "attendance", values_to = "count_frac"))) %>%
-			dplyr::mutate(data3 = purrr::map(.data$data3, ~dplyr::mutate(.x, program = dplyr::case_when(program == 'Child Care Assistance Program (CCAP)' ~ 'ccap', program == 'Early Childhood Family Education (ECFE)' ~ 'ecfe', program == 'Early Childhood Special Education (ECSE)' ~ 'ecse', program == 'MN District Preschool' ~ 'prek', program == 'No Reported Participation' ~ 'none'))))
+			dplyr::mutate(data2 = purrr::map(.data$data2, ~setNames(., c("age_at_screening", "Below 90%", "90% - 95%", "96% - 100%")))) %>%
+			dplyr::mutate(data3 = purrr::map(.data$data3, ~setNames(., c("program", "Below 90%", "90% - 95%", "96% - 100%")))) %>%
+			dplyr::mutate_at(dplyr::vars(.data$data2, .data$data3), ~purrr::map(.x, ~tidyr::pivot_longer(.x, `Below 90%`:`96% - 100%`, names_to = "attendance", values_to = "count_frac")))
 
 	}
 
@@ -133,10 +138,12 @@ clean_tables <- function(df, section, subsection, geography){
 
 		table1 <- r %>%
 			dplyr::select(-.data$data2) %>%
+			dplyr::filter(purrr::map_dbl(data1, ~nrow(.x)) > 0) %>%
 			tidyr::unnest(.data$data1)
 
 		table2 <- r %>%
 			dplyr::select(-.data$data1) %>%
+			dplyr::filter(purrr::map_dbl(data2, ~nrow(.x)) > 0) %>%
 			tidyr::unnest(.data$data2)
 
 		output <- list(table1 = table1, table2 = table2)
@@ -145,14 +152,17 @@ clean_tables <- function(df, section, subsection, geography){
 
 		table1 <- r %>%
 			dplyr::select(-.data$data2, -.data$data3) %>%
+			dplyr::filter(purrr::map_dbl(data1, ~nrow(.x)) > 0) %>%
 			tidyr::unnest(.data$data1)
 
 		table2 <- r %>%
 			dplyr::select(-.data$data1, -.data$data3) %>%
+			dplyr::filter(purrr::map_dbl(data2, ~nrow(.x)) > 0) %>%
 			tidyr::unnest(.data$data2)
 
 		table3 <- r %>%
 			dplyr::select(-.data$data1, -.data$data2) %>%
+			dplyr::filter(purrr::map_dbl(data3, ~nrow(.x)) > 0) %>%
 			tidyr::unnest(.data$data3)
 
 		output <- list(table1 = table1, table2 = table2, table3 = table3)
