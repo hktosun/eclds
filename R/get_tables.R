@@ -79,9 +79,7 @@ get_tables <- function(section, subsection, geography, i, year, remdr){
 								   "__p--1")
 				}
 
-			}
-
-			else if(geography == "school district"){
+			} else if(geography == "school district"){
 
 				if(section == "birth to prek" & subsection == "early childhood screening"){
 					link <- paste0("http://eclds.mn.gov/#earlyChildhoodScreening/orgId--",

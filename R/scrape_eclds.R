@@ -37,19 +37,19 @@ scrape_eclds <- function(section, subsection, geography, year, browser = "firefo
 
 		df <- df %>%
 			dplyr::left_join(counties, by = 'county_mn_id') %>%
-			dplyr::select(.data$county_id, .data$county, .data$year, .data$data)
+			dplyr::select(.data$county_id, .data$county, .data$year, .data$data) %>%
+			clean_tables(section, subsection, geography)
 
 	} else if(geography == "school district"){
 
-		df <- tidyr::expand_grid(sd_id = school_districts$sd_id, year = year) %>%
-			dplyr::mutate(data = purrr::map2(.data$sd_id, .data$year, ~get_tables(section, subsection, "school district", .x, .y, remdr)))
-
-		df <- df %>%
+		df <- tidyr::expand_grid(sd_id = school_districts$sd_id[1:5], year = year) %>%
+			dplyr::mutate(data = purrr::map2(.data$sd_id, .data$year, ~get_tables(section, subsection, "school district", .x, .y, remdr))) %>%
 			dplyr::left_join(school_districts, by = 'sd_id') %>%
-			dplyr::select(.data$school_district_id, .data$school_district_name, .data$year, .data$data)
+			dplyr::select(.data$school_district_id, .data$school_district_name, .data$year, .data$data) %>%
+			clean_tables(section, subsection, geography)
 	}
 
-	df <- clean_tables(df, section, subsection, geography)
+	df
 
 
 }
