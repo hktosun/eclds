@@ -42,7 +42,7 @@ scrape_eclds <- function(section, subsection, geography, year, browser = "firefo
 
 	} else if(geography == "school district"){
 
-		df <- tidyr::expand_grid(sd_id = school_districts$sd_id[1:5], year = year) %>%
+		df <- tidyr::expand_grid(sd_id = school_districts$sd_id, year = year) %>%
 			dplyr::mutate(data = purrr::map2(.data$sd_id, .data$year, ~get_tables(section, subsection, "school district", .x, .y, remdr))) %>%
 			dplyr::left_join(school_districts, by = 'sd_id') %>%
 			dplyr::select(.data$school_district_id, .data$school_district_name, .data$year, .data$data) %>%
